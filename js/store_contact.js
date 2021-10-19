@@ -4,6 +4,7 @@ const save = (event) => {
     let contactData = createContact();
     let jsonObject = JSON.stringify(contactData);
     createAndUpdateStorage(contactData);
+    window.location.replace(site_properties.home_page);
 }
 
 const createContact = () => {
@@ -34,6 +35,5 @@ function createAndUpdateStorage(contactData) {
     else {
         contactList = [contactData];
     }
-    alert(contactList.toString());
     localStorage.setItem("ContactList", JSON.stringify(contactList));
 }
