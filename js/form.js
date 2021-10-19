@@ -121,3 +121,26 @@ const setErrorText = (errorName, errorMessage) => {
     textError.textContent = errorMessage;
     return;
 }
+const resetForm = () => {
+    setValue('#name','');
+    setValue('#address','');
+    setSelectedIndex('#city',0);
+    setSelectedIndex('#state',0);
+    setValue('#zip','');
+    setValue('#phone','');
+    setValue('#email','');
+    let listOfErrors = ['.name-error','.address-error','.phone-error','.email-error','.zip-error'];
+    listOfErrors.forEach(errorElement => {
+      setErrorText(errorElement,"");
+    });
+  }
+  
+  const setValue = (id,value) => {
+  const element = document.querySelector(id);
+  element.value = value;
+  }
+  
+  const setSelectedIndex = (id,index) => {
+  const element = document.querySelector(id);
+  element.selectedIndex = index;
+  }
