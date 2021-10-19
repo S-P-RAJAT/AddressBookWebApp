@@ -1,7 +1,9 @@
 * {
     box-sizing: border-box;
 }
-
+html{
+    font-size: 10px;
+}
 body {
     margin: 0px;
     height: 100%;
@@ -39,6 +41,7 @@ body {
     color: #008CFF;
     text-transform: capitalize;
     padding-left: 12px;
+    font-size: 2rem;
 }
 
 .header-secondary-text {
@@ -71,7 +74,7 @@ body {
 }
 
 .form-head-text {
-    font: normal normal normal 24px/37px Roboto, sans-serif;
+    font: normal normal normal 2.2rem/3.0rem Roboto, sans-serif;
     letter-spacing: 0px;
     color: #ffffff;
     text-transform: uppercase;
@@ -82,8 +85,8 @@ body {
 
 .form-cancel-img {
     float: right;
-    width: 40px;
-    margin: 20px 50px 20px 0px;
+    width: 4rem;
+    margin: 2rem 5rem 2rem 0rem;
 }
 
 .row-content {
@@ -103,7 +106,7 @@ body {
 .oneRow-content {
     width: 100%;
     margin-bottom: 20px;
-    margin-right: 1em;
+    margin-right: 1.5em;
 }
 
 .zip-container {
@@ -112,45 +115,46 @@ body {
 }
 
 .text {
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #42515f;
     font-family: Roboto, sans-serif;
 }
 
 .label {
     text-align: left;
-    font: normal normal normal 16px/24px Roboto, sans-serif;
+    font: normal normal normal 1.6rem/2.4rem Roboto, sans-serif;
     letter-spacing: 0px;
     color: #42515F;
 }
 
 .input {
     width: 100%;
-    padding: 12px;
-    border-radius: 3px;
+    padding: 1.2rem;
+    border-radius: 0.3rem;
     resize: vertical;
     border: 1px solid #BDBDBD;
-    height: 40px;
+    height: 4rem;
 }
 
 .select-input {
     width: 100%;
-    padding: 6px;
-    margin-right: 15px;
+    padding: 0.6rem;
+    margin-right: 1.5rem;
     border-radius: 3px;
     border: 1px solid #BDBDBD;
     background-color: white;
     color: #42515F;
-    height: 40px;
+    height: 4rem;
+    font-size: 1.6rem;
 }
 
 #address {
-    height: 80px;
+    height: 8rem;
 }
 
 error-output {
     margin-left: 10px;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-style: italic;
     color: red;
 }
@@ -159,19 +163,19 @@ error-output {
     display: flex;
     flex-direction: row;
     justify-content: end;
-    margin: 30px auto 20px auto;
+    margin: 3rem auto 2rem auto;
     width: 80%
 }
 
 .button{
-    font-size: 20px;
+    font-size: 1.8rem;
     font-family: Roboto, sans-serif;
     letter-spacing: 0px;
     color: #42515F;
     border-radius: 5px;
     font-weight: 400;
-    min-width: 140px;
-    padding: 7px 7px;
+    min-width: 14rem;
+    padding: 0.7rem 0.7rem;
     border: 1px solid #969696;
     background: #E2E2E2 0% 0% no-repeat padding-box;
     cursor: pointer;
@@ -180,7 +184,7 @@ error-output {
 .submit-button {
     border: none;
     background-color: #f5f5f5;
-    margin-right: 35px;
+    margin-right: 3.5rem;
     background: #E2E2E2 0% 0% no-repeat padding-box;
     border: 1px solid #969696;
     border-radius: 5px;
@@ -205,4 +209,58 @@ error-output {
 }
 .submit-button-disabled:hover{
     cursor: not-allowed;
+}
+.reset-button:hover {
+    background: #707070 0% 0% no-repeat padding-box;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    opacity: 1;
+    color: white;
+}
+@media only screen and (max-width: 900px) {
+    .form {
+        width: 70%;
+    }
+    
+}
+@media only screen and (max-width: 700px) {
+    .form {
+        width: 80%;
+    }
+    html{
+        font-size: 8px;
+    }
+    
+}
+@media only screen and (max-width: 600px) {
+    .form {
+        width: 90%;
+    }
+    html{
+        font-size: 8px;
+    }
+    
+}
+@media only screen and (max-width: 450px) {
+    .form {
+        width: 90%;
+    }
+    html{
+        font-size: 8px;
+    }
+    .submit-reset-container{
+        flex-direction: column;
+        width: 70%;
+    }
+    .button{
+        width: 80%;
+        margin: 1rem auto;
+    }
+    #submit-button {
+        display: block;
+    }
+    .row-content-exp{
+        flex-direction: column;
+    }
+    
 }
