@@ -91,7 +91,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
             setErrorText('.zip-error', e);
         }
     });
+    
+    let button = document.getElementById("submit-button");
+    name.addEventListener('input', function () {
+        if (name.value == "") {
+            button.classList.remove("submit-button");
+            button.classList.add("submit-button-disabled");
+        } else {
+            activateSubmitButton(button);
+        }
+    });
 });
+
+const activateSubmitButton = () => {
+    let button = document.getElementById("submit-button");
+
+    button.classList.remove("submit-button-disabled");
+    button.classList.add("submit-button");
+    button.disabled = false;
+}
 
 const setErrorText = (errorName, errorMessage) => {
     const textError = document.querySelector(errorName);
