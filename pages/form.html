@@ -25,7 +25,7 @@
         </div>
     </header>
     <div class="form-content">
-        <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save(event)">
             <div class="form-head">
                 <div class="form-head-text">Person Address Form</div>
                 <a href="./home.html"><img src="../assets/images/cancel.png" class="form-cancel-img"></a>
@@ -84,6 +84,10 @@
                 <input class="input" type="text" name="Email" id="email" required>
                 <error-output class="email-error" for="text"></error-output>
             </div>
+            <div class="submit-reset-container">
+                <button type="submit" class="button submit-button-disabled" id="submit-button">Add</button>
+                <button type="button" onclick="resetForm()" class="button">Reset</button>
+              </div>
         </form>
     </div>
 </body>
