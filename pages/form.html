@@ -10,6 +10,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/form.css">
     <title>Address Book form</title>
+    <script src="../js/display_city_state.js"></script>
     <script src="../js/utility.js"></script>
     <script src="../js/form.js"></script>
     <script src="../js/store_contact.js"></script>
@@ -54,24 +55,13 @@
                     <label class="label text" for="city">City</label>
                     <select class="select-input"  id = "city" required>
                         <option value="" selected disabled hidden>Select City</option>
-                        <option value="Amaravathi">Amaravathi</option>
-                        <option value="Hyderabad">Hyderabad</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Bhopal">Bhopal</option>
+                        <option value="" disabled>Please select state first</option>
                     </select>
                 </div>
                 <div class="oneRow-content">
                     <label class="label text" for="state">State</label>
-                    <select class="select-input"  id = "state" required>
-                        <option value="" selected disabled hidden>Select State</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Telanagana">Telanagana</option>
-                        <option value="TamilNadu">Tamil Nadu</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <select class="select-input"  id = "state" onfocus="makeState();" required>
+                        <option value="">Select State</option>
                     </select>
                 </div>
                 <div class="zip-container">

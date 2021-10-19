@@ -95,6 +95,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             setErrorText('.zip-error', e);
         }
     });
+    const stateElement = document.querySelector('#state');
+    stateElement.addEventListener('input', function () {
+        makeCity(stateElement.value);
+        console.log(stateElement.value);
+    });
 
     let button = document.getElementById("submit-button");
     name.addEventListener('input', function () {

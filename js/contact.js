@@ -66,7 +66,7 @@ class Contact{
 
     set city(city)
     {
-        let cityRegex = RegExp('^[A-Za-z]{3,}$')
+        let cityRegex = RegExp('^[A-Z][A-Za-z ]{2,}$')
         if(cityRegex.test(city))
         this._city = city;
         else
@@ -80,7 +80,7 @@ class Contact{
 
     set state(state)
     {
-        let stateRegex = RegExp('^[A-Za-z]{3,}$')
+        let stateRegex = RegExp('^[A-Z][A-Za-z ]{2,}$')
         if(stateRegex.test(state))
         this._state = state;
         else
