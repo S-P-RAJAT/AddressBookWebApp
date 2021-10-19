@@ -105,6 +105,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             activateSubmitButton(button);
         }
     });
+    document.querySelector(".cancel-button").href = site_properties.home_page;
 });
 
 const activateSubmitButton = () => {
