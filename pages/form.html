@@ -26,8 +26,60 @@
         <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
             <div class="form-head">
                 <div class="form-head-text">Person Address Form</div>
-                <a href="./home.html"><img src="../assets/images/cancel.png" class="form-cancel-img"></a>
+                    <a href="./home.html" ><img src="../assets/images/cancel.png" class = "form-cancel-img"></a>
             </div>
+            <div class="row-content">
+              <label class="label text" for="name">Full Name</label>
+              <div class="row-input">
+              <input class="input" type="text" name="Name" id="name" required>
+              <error-output class="name-error" for="text"></error-output>
+            </div>
+          </div>
+          <div class="row-content">
+            <label class="label text" for="phone">Phone Number</label>
+            <input class="input" type="text" name="Phone" id="phone" required>
+            <error-output class="phone-error" for="text"></error-output>
+        </div>
+          <div class="row-content">
+            <label class="label text" for="address">Address</label>
+              <textarea class="input" id="address" name="Address" required></textarea>
+          </div>
+          <div class="row-content-exp">
+            <div class="oneRow-content">
+            <label class="label text" for="city">City</label>
+            <select class="select-input" required>
+              <option value="" selected disabled hidden>Select City</option>
+              <option value="Amaravathi">Amaravathi</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Bhopal">Bhopal</option>
+            </select>
+          </div>
+          <div class="oneRow-content">
+            <label class="label text" for="state">State</label>
+            <select class="select-input" required>
+              <option value="" selected disabled hidden>Select State</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Telanagana">Telanagana</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+            </select>
+          </div>
+          <div class="zip-container">
+            <label class="label text" for="zip">Zip</label>
+            <input class="input" type="text" name="Zip" id="zip" required>
+          </div>
+        </div>
+
+      <div class="row-content">
+        <label class="label text" for="email">Email</label>
+        <input class="input" type="text" name="Email" id="email" required>
+        <error-output class="email-error" for="text"></error-output>
+     </div>
         </form>
     </div>
 </body>
