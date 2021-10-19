@@ -5,6 +5,7 @@
 body {
     margin: 0px;
     height: 100%;
+    background-color: #f7f7f7;
 }
 
 .header {
@@ -55,6 +56,7 @@ body {
 .form {
     width: 60%;
     margin: 30px;
+    margin-bottom: 10px;
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 8px;
@@ -63,15 +65,13 @@ body {
 
 .form-head {
     background: #008CFF 0% 0% no-repeat padding-box;
-    width: 100%;
-    margin-top: 0px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     border-radius: 8px 8px 0px 0px;
     text-align: center;
 }
 
 .form-head-text {
-    font: normal normal normal 24px/37px Roboto;
+    font: normal normal normal 24px/37px Roboto, sans-serif;
     letter-spacing: 0px;
     color: #ffffff;
     text-transform: uppercase;
@@ -87,56 +87,41 @@ body {
 }
 
 .row-content {
-    display: flex;
-    padding-right: 150px;
-    padding-left: 150px;
-    flex-direction: column;
+    width:80%;
+    margin: auto;
     margin-bottom: 10px;
 }
 
 .row-content-exp {
     display: flex;
-    padding-right: 150px;
-    padding-left: 150px;
+    width:80%;
+    margin: auto;
     flex-direction: row;
     align-items: center;
-    border: 0px solid green;
 }
 
 .oneRow-content {
-    display: flex;
     width: 100%;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding-left: 0px;
-    flex-direction: column;
     margin-bottom: 20px;
     margin-right: 1em;
 }
 
 .zip-container {
-    display: flex;
     width: 100%;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding-left: 0px;
-    flex-direction: column;
     margin-bottom: 20px;
 }
 
 .text {
     font-size: 16px;
     color: #42515f;
-    opacity: 1;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
 }
 
 .label {
     text-align: left;
-    font: normal normal normal 16px/24px Roboto;
+    font: normal normal normal 16px/24px Roboto, sans-serif;
     letter-spacing: 0px;
     color: #42515F;
-    opacity: 1;
 }
 
 .input {
@@ -145,20 +130,18 @@ body {
     border-radius: 3px;
     resize: vertical;
     border: 1px solid #BDBDBD;
-    opacity: 1;
     height: 40px;
 }
 
 .select-input {
     width: 100%;
-    padding: 12px;
+    padding: 6px;
     margin-right: 15px;
     border-radius: 3px;
-    resize: vertical;
     border: 1px solid #BDBDBD;
-    opacity: 1;
     background-color: white;
     color: #42515F;
+    height: 40px;
 }
 
 #address {
@@ -171,3 +154,36 @@ error-output {
     font-style: italic;
     color: red;
 }
+
+.submit-reset-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 30px auto 20px auto;
+    width: 80%
+}
+
+.button{
+    font-size: 20px;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 0px;
+    color: #42515F;
+    border-radius: 5px;
+    font-weight: 400;
+    min-width: 140px;
+    padding: 7px 7px;
+    border: 1px solid #969696;
+    background: #E2E2E2 0% 0% no-repeat padding-box;
+    cursor: pointer;
+}
+
+.submit-button {
+    border: none;
+    background-color: #f5f5f5;
+    margin-right: 35px;
+    background: #E2E2E2 0% 0% no-repeat padding-box;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    opacity: 1;
+}
+
