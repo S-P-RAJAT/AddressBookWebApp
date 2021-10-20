@@ -105,6 +105,89 @@ body {
     width: 2.7rem;
 }
 
+#table-main{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1.5rem;
+}
+
+td, th{
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    border: 0rem solid #dddddd;
+}
+
+th{
+    text-align: left;
+    font: normal normal normal 1.6rem/2.4rem Roboto, sans-serif;
+    letter-spacing: 0rem;
+    color: #658292;
+    opacity: 1;
+    border: 0rem solid #dddddd;
+    font-weight: 500;
+}
+
+tr:not(:first-child){
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #e3e3e3;
+    border-radius: 0.3rem;
+}
+
+td{
+    font: normal normal normal 1.7rem/2.1rem Roboto,sans-serif;
+    letter-spacing: 0rem;
+    color: #3d3d3d;
+    opacity: 1;
+    height: 4.8rem;
+}
+
+td:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td img:first-child{
+    margin-right: 1rem;
+}
+
+td img{
+    cursor: pointer;
+}
+
+#edit-button{
+    width:6rem;
+}
+
+@media only screen and (max-width: 1100px) {
+    #table-main{
+        width: 90%;
+        margin: 0 auto;
+        overflow-x: scroll;
+    }
+    .sub-header-content{
+        width: 90%;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    html{
+        font-size: 9px;
+    }  
+    .add-button {
+        font: normal normal normal 2.0rem/2.4rem Roboto,sans-serif;
+        border-radius: 0.5rem;
+        padding: 0.8rem 1.6rem;
+        min-width: fit-content;
+        min-height: 3rem;
+    }
+}
 
 @media only screen and (max-width: 450px) {
     
@@ -112,18 +195,6 @@ body {
         font-size: 8px;
     }
     .add-button {
-        font: normal normal normal 2.0rem/2.4rem Roboto,sans-serif;
-        letter-spacing: 0rem;
-        color: #ffffff;
-        opacity: 1;
-        background: #008CFF 0% 0% no-repeat padding-box;
-        border: none;
-        border-radius: 0.5rem;
         padding: 0.5rem 1rem;
-        outline: none;
-        cursor: pointer;
-        text-decoration: none;
-        min-width: fit-content;
-        min-height: 3rem;
     }
 }
