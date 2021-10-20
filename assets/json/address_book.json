@@ -2,9 +2,10 @@
     "addressBookDB" : [
         {
             "id" : "1",
-            "_name" : "Pradeep Sharma",
+            "_firstName" : "Pradeep",
+            "_lastName": "Sharma",
             "_address": "2nd street, Hosa Road",
-            "_phoneNumber": "+916361695395",
+            "_phone": "+916361695395",
             "_city": "Bengaluru",
             "_state": "Karnataka",
             "_zip" : "560100",
@@ -12,9 +13,10 @@
         },
         {
             "id" : "2",
-            "_name" : "Naveen Verma",
+            "_firstName" : "Naveen",
+            "_lastName": "Verma",
             "_address": "2nd cross, temple Street",
-            "_phoneNumber": "9561695395",
+            "_phone": "9561695395",
             "_city": "Tirupati",
             "_state": "Andhra Pradesh",
             "_zip" : "577415",

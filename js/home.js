@@ -1,15 +1,36 @@
 let contactList;
 
+
 window.addEventListener('DOMContentLoaded', (event) => {
-    contactList = getContactDataFromStorage();
-    document.querySelector(".person-count").textContent = contactList.length;
-    createInnerHtml();
+    if (site_properties.use_local_storage.match("true")) {
+        getContactDataFromStorage();
+    } else {
+        getContactDataFromServer();
+    }
 });
 
+const processContactDataResponse = () => {
+    document.querySelector(".person-count").textContent = contactList.length;
+    createInnerHtml();
+}
+
 const getContactDataFromStorage = () => {
-    return localStorage.getItem("ContactList") ?
-                        JSON.parse(localStorage.getItem('ContactList')) : [];
-  }
+    contactList = localStorage.getItem("ContactList") ?
+        JSON.parse(localStorage.getItem('ContactList')) : [];
+    processContactDataResponse();
+}
+
+const getContactDataFromServer = () => {
+    makeServiceCall("GET", site_properties.server_url, true)
+        .then(data => {
+            contactList = JSON.parse(data);
+            processContactDataResponse();
+        }).catch(error => {
+            console.log("GET Error Status: " + JSON.stringify(error));
+            contactList = [];
+            processContactDataResponse();
+        });
+}
 
 
 const createInnerHtml = () => {
@@ -23,7 +44,7 @@ const createInnerHtml = () => {
       <th>Email</th>
     `;
 
-    if (contactList.length == 0){
+    if (contactList.length == 0) {
         document.querySelector('#table-display').innerHTML = "";
         return;
     }
@@ -53,17 +74,17 @@ const createInnerHtml = () => {
 }
 const remove = (node) => {
     let contact = contactList.find(cnt => cnt._id == node.id);
-    if(!contact) return;
+    if (!contact) return;
     const index = contactList.map(cnt => cnt._id).indexOf(contact._id);
-    contactList.splice(index,1);
+    contactList.splice(index, 1);
     document.querySelector(".person-count").textContent = contactList.length;
-    localStorage.setItem("ContactList",JSON.stringify(contactList));
+    localStorage.setItem("ContactList", JSON.stringify(contactList));
     createInnerHtml();
 }
 
 const update = (node) => {
     let contact = contactList.find(cnt => cnt._id == node.id);
-    if(!contact) return;
-    localStorage.setItem("editContact",JSON.stringify(contact));
+    if (!contact) return;
+    localStorage.setItem("editContact", JSON.stringify(contact));
     window.location.replace(site_properties.add_contact_page);
-  } 
+}
