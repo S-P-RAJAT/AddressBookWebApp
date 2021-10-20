@@ -19,7 +19,7 @@ const createInnerHtml = () => {
       <th>City</th>
       <th>State</th>
       <th>Zip Code</th>
-      <th><div style='width:12rem'>Phone Number<div></th>
+      <th>Phone Number</th>
       <th>Email</th>
     `;
 
