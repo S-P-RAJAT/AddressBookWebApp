@@ -1,15 +1,18 @@
 * {
     box-sizing: border-box;
 }
+html{
+    font-size: 10px;
+}
 
 body {
-    margin: 0px;
+    margin: 0rem;
     height: 100%;
     background-color: #f7f7f7;
 }
 
 .header {
-    padding: 15px 0;
+    padding: 1.5rem 0;
     background-color: #ffffff;
 }
 
@@ -28,19 +31,99 @@ body {
 }
 
 .logo-content-img {
-    width: 40px;
+    width: 4rem;
 }
 
 .header-text {
-    font: normal;
+    font-size: 2rem;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
-    letter-spacing: 0px;
+    letter-spacing: 0rem;
     color: #008CFF;
     text-transform: capitalize;
-    padding-left: 5px;
+    padding-left: 1.2rem;
 }
 
 .header-secondary-text {
     color: #42515f;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 8rem);
+    background-color: #f7f7f7;
+    padding: 3rem 0 1rem;
+    box-sizing: border-box;
+}
+
+.sub-header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 2.5rem;
+}
+
+.person-detail-text {
+    font: normal normal bold 2.2rem/2.5rem Roboto,sans-serif;
+    letter-spacing: 0rem;
+    color: #42515f;
+    opacity: 1;
+}
+
+.person-count {
+    background-color: #008CFF;
+    color: #ffffff;
+    border-radius: 62%;
+    font-size: 1.6rem;
+    width: 2.6rem;
+    text-align: center;
+    display: inline-block;
+}
+
+.add-button {
+    font: normal normal normal 2.0rem/2.4rem Roboto,sans-serif;
+    letter-spacing: 0rem;
+    color: #ffffff;
+    opacity: 1;
+    background: #008CFF 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    min-width: fit-content;
+    min-height: 4rem;
+}
+
+.add-button-img{
+    margin-bottom:-0.6rem;
+    width: 2.7rem;
+}
+
+
+@media only screen and (max-width: 450px) {
+    
+    html{
+        font-size: 8px;
+    }
+    .add-button {
+        font: normal normal normal 2.0rem/2.4rem Roboto,sans-serif;
+        letter-spacing: 0rem;
+        color: #ffffff;
+        opacity: 1;
+        background: #008CFF 0% 0% no-repeat padding-box;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+        min-width: fit-content;
+        min-height: 3rem;
+    }
 }
