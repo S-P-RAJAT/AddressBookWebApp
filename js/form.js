@@ -1,6 +1,6 @@
 
 let isUpdate = false;
-let contactObj;
+let contactObj={};
 
 window.addEventListener('DOMContentLoaded', (event) => {
 

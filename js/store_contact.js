@@ -1,20 +1,36 @@
 const save = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    try{
+    try {
         setContactObject();
-        createAndUpdateStorage();
-        resetForm();
-        window.location.replace(site_properties.home_page);
-    }catch(e){
-      console.log(e);
-      return;
+        if (site_properties.use_local_storage.match("true")) {
+            createAndUpdateStorage();
+            resetForm();
+            window.location.replace(site_properties.home_page);
+        } else {
+            createContact();
+        }
+    } catch (e) {
+        console.log(e);
+        return;
     }
-  }
-  
-  const setContactObject = () => {
-    if (!isUpdate && site_properties.use_local_storage.match("true")) {
-        contactData.id = createNewContactId();
+}
+const createContact = () => {
+    let postURL = site_properties.server_url;
+    let methodCall = "POST";
+    makeServiceCall(methodCall, postURL, true, contactObj)
+        .then(data => {
+            resetForm();
+            window.location.replace(site_properties.home_page);
+        })
+        .catch(error => {
+            throw error;
+        });
+}
+
+const setContactObject = () => {
+    if (!isUpdate) {
+        contactObj.id = createNewContactId();
     }
     let names = getInputValueById('#name').split(" ");
     contactObj._firstName = names[0];
@@ -25,7 +41,7 @@ const save = (event) => {
     contactObj._zip = getInputValueById('#zip');
     contactObj._phone = getInputValueById('#phone');
     contactObj._email = getInputValueById('#email');
-  }
+}
 
 
 const createNewContactId = () => {
@@ -42,20 +58,20 @@ const getInputValueById = (id) => {
 
 const createAndUpdateStorage = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
-    if(contactList){
+    if (contactList) {
         let contactData = contactList.
-                            find(contact => contact._id == contactObj._id);
-        if(!contactData)
-        contactList.push(contactObj);
-        else{
+            find(contact => contact._id == contactObj._id);
+        if (!contactData)
+            contactList.push(contactObj);
+        else {
             const index = contactList.map(cnt => cnt._id)
-                                             .indexOf(contactData._id);
-            contactList.splice(index,1,contactObj);
+                .indexOf(contactData._id);
+            contactList.splice(index, 1, contactObj);
         }
     }
-    else{
-      contactList = [contactObj];
+    else {
+        contactList = [contactObj];
     }
-    localStorage.setItem("ContactList",JSON.stringify(contactList));
-  }
+    localStorage.setItem("ContactList", JSON.stringify(contactList));
+}
 
