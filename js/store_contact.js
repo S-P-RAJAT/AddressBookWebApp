@@ -1,5 +1,3 @@
-let contactObj = {};
-
 const save = (event) => {
     event.preventDefault();
     event.stopPropagation();

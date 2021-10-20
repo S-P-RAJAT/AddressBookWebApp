@@ -18,7 +18,7 @@ let stateList = [['Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Prad
                 'Uttar Pradesh','Uttarakhand','West Bengal']];
 
 function makeState(){
-    makeSubmenu(0,stateList,"state")
+    makeSubmenu(0,stateList,"state");
 }
 function makeCity(value){
     makeSubmenu(value,citiesByState,"city");

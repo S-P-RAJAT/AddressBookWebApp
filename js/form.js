@@ -2,6 +2,9 @@ var script = document.createElement('script');
 script.src = "../js/contact.js";
 document.head.appendChild(script);
 
+let isUpdate = false;
+let contactObj;
+
 window.addEventListener('DOMContentLoaded', (event) => {
 
     const name = document.querySelector('#name');
@@ -87,16 +90,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
     zipElement.addEventListener('input', function () {
         if (zipElement.value == "") {
             setErrorText('.zip-error', "");
-            zipError.style.paddingLeft = "0rem";    
+            zipError.style.paddingLeft = "0rem";
             return;
         }
         try {
             checkZip(zipElement.value);
-            zipError.style.paddingLeft = "0rem";    
+            zipError.style.paddingLeft = "0rem";
             setErrorText('.zip-error', "");
         } catch (e) {
             setErrorText('.zip-error', e);
-            zipError.style.paddingLeft = "1rem";    
+            zipError.style.paddingLeft = "1rem";
         }
     });
     const stateElement = document.querySelector('#state');
@@ -114,7 +117,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             activateSubmitButton(button);
         }
     });
+    makeState();
     document.querySelector(".cancel-button").href = site_properties.home_page;
+    checkForUpdate();
+
 });
 
 const activateSubmitButton = () => {
@@ -131,25 +137,53 @@ const setErrorText = (errorName, errorMessage) => {
     return;
 }
 const resetForm = () => {
-    setValue('#name','');
-    setValue('#address','');
-    setSelectedIndex('#city',0);
-    setSelectedIndex('#state',0);
-    setValue('#zip','');
-    setValue('#phone','');
-    setValue('#email','');
-    let listOfErrors = ['.name-error','.address-error','.phone-error','.email-error','.zip-error'];
+    setValue('#name', '');
+    setValue('#address', '');
+    setSelectedIndex('#city', 0);
+    setSelectedIndex('#state', 0);
+    setValue('#zip', '');
+    setValue('#phone', '');
+    setValue('#email', '');
+    let listOfErrors = ['.name-error', '.address-error', '.phone-error', '.email-error', '.zip-error'];
     listOfErrors.forEach(errorElement => {
-      setErrorText(errorElement,"");
+        setErrorText(errorElement, "");
     });
-  }
-  
-  const setValue = (id,value) => {
-  const element = document.querySelector(id);
-  element.value = value;
-  }
-  
-  const setSelectedIndex = (id,index) => {
-  const element = document.querySelector(id);
-  element.selectedIndex = index;
-  }
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
+
+const setSelectedIndex = (id, index) => {
+    const element = document.querySelector(id);
+    element.selectedIndex = index;
+}
+const checkForUpdate = () => {
+    const contactJson = localStorage.getItem('editContact');
+    isUpdate = contactJson ? true : false;
+    if (!isUpdate) {
+        resetForm();
+        return;
+    }
+    activateSubmitButton();
+    contactObj = JSON.parse(contactJson);
+    setForm();
+    localStorage.removeItem("editContact");
+}
+
+const setForm = () => {
+    setValue('#name', contactObj._firstName + " " + contactObj._lastName);
+    setValue('#address', contactObj._address);
+    makeState();
+    setValue('#state', contactObj._state);
+    setSelectInput('city', contactObj._city);
+    setValue('#zip', contactObj._zip);
+    setValue('#phone', contactObj._phone);
+    setValue('#email', contactObj._email);
+}
+
+function setSelectInput(elementId,value){
+    var option = "<option value='"+value+"'>"+value+"</option>";
+    document.getElementById(elementId).innerHTML = option;
+}

@@ -45,7 +45,7 @@ body {
 }
 
 .header-secondary-text {
-    color: #42515f;
+    color: #22313F;
 }
 
 .form-content {
@@ -117,7 +117,7 @@ body {
 
 .text {
     font-size: 1.6rem;
-    color: #42515f;
+    color: #22313F;
     font-family: Roboto, sans-serif;
 }
 
@@ -125,7 +125,7 @@ body {
     text-align: left;
     font: normal normal normal 1.6rem/2.4rem Roboto, sans-serif;
     letter-spacing: 0px;
-    color: #42515F;
+    color: #22313F;
     display: inline-block;
 }
 
@@ -138,6 +138,7 @@ body {
     height: 4rem;
     margin-bottom: 0.5rem;
     font-size: 1.6rem;
+    color: #22313F;
 }
 
 .select-input {
@@ -147,7 +148,7 @@ body {
     border-radius: 3px;
     border: 1px solid #BDBDBD;
     background-color: white;
-    color: #42515F;
+    color: #22313F;
     height: 4rem;
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
@@ -180,7 +181,7 @@ error-output {
     font-size: 1.8rem;
     font-family: Roboto, sans-serif;
     letter-spacing: 0px;
-    color: #42515F;
+    color: #22313F;
     border-radius: 5px;
     font-weight: 400;
     min-width: 14rem;
