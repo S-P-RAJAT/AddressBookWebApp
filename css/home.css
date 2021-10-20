@@ -157,7 +157,13 @@ th:nth-child(2){
 th:nth-child(6){
     min-width: 15rem;
 }
+td img:first-child{
+    margin-right: 10px;
+}
 
+td img{
+    cursor: pointer;
+}
 #edit-button{
     width:6rem;
 }
