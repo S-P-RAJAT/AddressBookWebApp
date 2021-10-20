@@ -1,12 +1,28 @@
 const save = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    let contactData = createContact();
-    let jsonObject = JSON.stringify(contactData);
-    createAndUpdateStorage(contactData);
-    console.log(contactData);
-    window.location.replace(site_properties.home_page);
-}
+    try{
+        setContactObject();
+        createAndUpdateStorage();
+        resetForm();
+        window.location.replace(site_properties.home_page);
+    }catch(e){
+      console.log(e);
+      return;
+    }
+  }
+  
+  const setContactObject = () => {
+    let names = getInputValueById('#name').split(" ");
+    contactObj._firstName = names[0];
+    contactObj._lastName = names[1];
+    contactObj._address = getInputValueById('#address');
+    contactObj._city = getInputValueById('#city');
+    contactObj._state = getInputValueById('#state');
+    contactObj._zip = getInputValueById('#zip');
+    contactObj._phone = getInputValueById('#phone');
+    contactObj._email = getInputValueById('#email');
+  }
 
 const createContact = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
@@ -38,14 +54,21 @@ const getInputValueById = (id) => {
     return value;
 }
 
-function createAndUpdateStorage(contactData) {
+const createAndUpdateStorage = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
-
-    if (contactList != undefined) {
-        contactList.push(contactData);
+    if(contactList){
+        let contactData = contactList.
+                            find(contact => contact._id == contactObj._id);
+        if(!contactData)
+        contactList.push(createContact());
+        else{
+            const index = contactList.map(cnt => cnt._id)
+                                             .indexOf(contactData._id);
+            contactList.splice(index,1,createContactData(contactData._id));
+        }
     }
-    else {
-        contactList = [contactData];
+    else{
+      contactList = [createContactData()];
     }
-    localStorage.setItem("ContactList", JSON.stringify(contactList));
-}
+    localStorage.setItem("ContactList",JSON.stringify(contactList));
+  }
