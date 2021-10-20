@@ -10,7 +10,7 @@ function reportStatus() {
         citiesByState = JSON.parse(this.responseText);
     }
 }
-let stateList = [['Select State','Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh',
+let stateList = [['Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh',
                 'Assam','Bihar','Chandigarh','Chhattisgarh','Dadra and Nagar Haveli','Delhi','Goa',
                 'Gujarat','Haryana','Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka',
                 'Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland',
@@ -27,7 +27,9 @@ function makeCity(value){
 function makeSubmenu(value,map,elementId) {
     if(value.length==0) document.getElementById(elementId).innerHTML = "<option></option>";
     else {
-    var citiesOptions = "";
+    entity = elementId.replace(/(\w)(\w*)/g,
+        function(g0,g1,g2){return g1.toUpperCase() + g2.toLowerCase();});
+    var citiesOptions = "<option value=''>Select "+entity+"</option>";
     for(cityId in map[value]) {
     citiesOptions+="<option>"+map[value][cityId]+"</option>";
     }
