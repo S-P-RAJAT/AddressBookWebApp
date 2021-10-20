@@ -1,6 +1,3 @@
-var script = document.createElement('script');
-script.src = "../js/contact.js";
-document.head.appendChild(script);
 
 let isUpdate = false;
 let contactObj;

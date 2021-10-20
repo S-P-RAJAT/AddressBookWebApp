@@ -13,6 +13,9 @@ const save = (event) => {
   }
   
   const setContactObject = () => {
+    if (!isUpdate && site_properties.use_local_storage.match("true")) {
+        contactData.id = createNewContactId();
+    }
     let names = getInputValueById('#name').split(" ");
     contactObj._firstName = names[0];
     contactObj._lastName = names[1];
@@ -60,15 +63,15 @@ const createAndUpdateStorage = () => {
         let contactData = contactList.
                             find(contact => contact._id == contactObj._id);
         if(!contactData)
-        contactList.push(createContact());
+        contactList.push(contactObj);
         else{
             const index = contactList.map(cnt => cnt._id)
                                              .indexOf(contactData._id);
-            contactList.splice(index,1,createContactData(contactData._id));
+            contactList.splice(index,1,contactObj);
         }
     }
     else{
-      contactList = [createContactData()];
+      contactList = [contactObj];
     }
     localStorage.setItem("ContactList",JSON.stringify(contactList));
   }
