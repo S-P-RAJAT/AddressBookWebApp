@@ -77,10 +77,22 @@ const remove = (node) => {
     if (!contact) return;
     const index = contactList.map(cnt => cnt.id).indexOf(contact.id);
     contactList.splice(index, 1);
-    document.querySelector(".person-count").textContent = contactList.length;
-    localStorage.setItem("ContactList", JSON.stringify(contactList));
-    createInnerHtml();
+    if(site_properties.use_local_storage.match("true")) {
+        document.querySelector(".person-count").textContent = contactList.length;
+        localStorage.setItem("ContactList",JSON.stringify(contactList));
+        createInnerHtml();
+      }else {
+        const deleteURL = site_properties.server_url + contact.id.toString();
+        makeServiceCall("DELETE", deleteURL, true)
+            .then(data => {
+                createInnerHtml();
+            })
+            .catch(error => {
+                console.log("DELETE Error Status: "+JSON.stringify(error));
+            });
+      }
 }
+
 
 const update = (node) => {
     let contact = contactList.find(cnt => cnt.id == node.id);
