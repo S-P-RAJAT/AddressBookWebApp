@@ -108,7 +108,7 @@ class Contact{
 
     set phone(phone)
     {
-        let phoneRegex = RegExp('^([+]\\d{1,3})? ?\\d{10}$');
+        let phoneRegex = RegExp('^([+]\\d{1,3}|\\d{2})? ?\\d{10}$');
         if(phoneRegex.test(phone))
         this._phone = phone;
         else
