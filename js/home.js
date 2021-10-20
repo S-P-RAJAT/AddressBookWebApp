@@ -61,9 +61,9 @@ const createInnerHtml = () => {
         <td>${contactData._phone}</td>
         <td>${contactData._email}</td>
         <td><div id="edit-button">
-        <img id="${contactData._id}" alt="delete" onclick="remove(this)" 
+        <img id="${contactData.id}" alt="delete" onclick="remove(this)" 
                 src="../assets/icons/delete-black-18dp.svg">
-        <img id="${contactData._id}" alt="edit" onclick="update(this)"
+        <img id="${contactData.id}" alt="edit" onclick="update(this)"
                 src="../assets/icons/create-black-18dp.svg">
             </div>
         </td>
@@ -73,9 +73,9 @@ const createInnerHtml = () => {
     document.querySelector('#table-display').innerHTML = innerHtml;
 }
 const remove = (node) => {
-    let contact = contactList.find(cnt => cnt._id == node.id);
+    let contact = contactList.find(cnt => cnt.id == node.id);
     if (!contact) return;
-    const index = contactList.map(cnt => cnt._id).indexOf(contact._id);
+    const index = contactList.map(cnt => cnt.id).indexOf(contact.id);
     contactList.splice(index, 1);
     document.querySelector(".person-count").textContent = contactList.length;
     localStorage.setItem("ContactList", JSON.stringify(contactList));
@@ -83,7 +83,7 @@ const remove = (node) => {
 }
 
 const update = (node) => {
-    let contact = contactList.find(cnt => cnt._id == node.id);
+    let contact = contactList.find(cnt => cnt.id == node.id);
     if (!contact) return;
     localStorage.setItem("editContact", JSON.stringify(contact));
     window.location.replace(site_properties.add_contact_page);

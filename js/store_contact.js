@@ -8,16 +8,20 @@ const save = (event) => {
             resetForm();
             window.location.replace(site_properties.home_page);
         } else {
-            createContact();
+            createOrUpdateContact();
         }
     } catch (e) {
         console.log(e);
         return;
     }
 }
-const createContact = () => {
+const createOrUpdateContact = () => {
     let postURL = site_properties.server_url;
     let methodCall = "POST";
+    if(isUpdate){
+        methodCall = "PUT";
+        postURL = postURL + contactObj.id.toString();
+    }
     makeServiceCall(methodCall, postURL, true, contactObj)
         .then(data => {
             resetForm();
