@@ -1,0 +1,24 @@
+{
+    "addressBookDB" : [
+        {
+            "id" : "1",
+            "_name" : "Pradeep Sharma",
+            "_address": "2nd street, Hosa Road",
+            "_phoneNumber": "+916361695395",
+            "_city": "Bengaluru",
+            "_state": "Karnataka",
+            "_zip" : "560100",
+            "_email": "pradeepsharma@gmail.com"
+        },
+        {
+            "id" : "2",
+            "_name" : "Naveen Verma",
+            "_address": "2nd cross, temple Street",
+            "_phoneNumber": "9561695395",
+            "_city": "Tirupati",
+            "_state": "Andhra Pradesh",
+            "_zip" : "577415",
+            "_email": "naveenverma@gmail.com"
+        }
+    ]
+}
