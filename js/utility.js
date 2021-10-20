@@ -22,11 +22,11 @@ function checkAddress(address) {
 
 function checkZip(zip) {
     if (!validateRegex('^[0-9]{3}[ ]?[0-9]{3}$', zip))
-        throw 'Zip is Invalid';
+        throw 'Zip is Invalid ';    
 }
 
 function checkPhoneNumber(phone) {
-    if (!validateRegex('^([+]\\d{1,3})? ?\\d{10}$', phone))
+    if (!validateRegex('^([+]\\d{1,3}|\\d{2})? ?\\d{10}$', phone))
         throw 'Phone Number is Invalid';
 }
 

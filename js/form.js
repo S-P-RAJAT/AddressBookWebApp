@@ -83,16 +83,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     const zipElement = document.querySelector('#zip');
+    const zipError = document.querySelector(".zip-error");
     zipElement.addEventListener('input', function () {
         if (zipElement.value == "") {
             setErrorText('.zip-error', "");
+            zipError.style.paddingLeft = "0rem";    
             return;
         }
         try {
             checkZip(zipElement.value);
+            zipError.style.paddingLeft = "0rem";    
             setErrorText('.zip-error', "");
         } catch (e) {
             setErrorText('.zip-error', e);
+            zipError.style.paddingLeft = "1rem";    
         }
     });
     const stateElement = document.querySelector('#state');
