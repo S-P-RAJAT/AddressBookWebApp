@@ -1,6 +1,16 @@
+let contactList;
+
 window.addEventListener('DOMContentLoaded', (event) => {
+    contactList = getContactDataFromStorage();
+    document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
 });
+
+const getContactDataFromStorage = () => {
+    return localStorage.getItem("ContactList") ?
+                        JSON.parse(localStorage.getItem('ContactList')) : [];
+  }
+
 
 const createInnerHtml = () => {
     const headerHtml = ` 
@@ -9,10 +19,10 @@ const createInnerHtml = () => {
       <th>City</th>
       <th>State</th>
       <th>Zip Code</th>
-      <th>Phone Number</th>
+      <th><div style='width:12rem'>Phone Number<div></th>
       <th>Email</th>
     `;
-    let contactList = createContactJSON();
+
     if (contactList.length == 0) return;
     document.querySelector(".person-count").textContent = contactList.length;
     let innerHtml = `${headerHtml}`;
@@ -37,30 +47,4 @@ const createInnerHtml = () => {
     `;
     }
     document.querySelector('#table-display').innerHTML = innerHtml;
-}
-
-const createContactJSON = () => {
-    let contactListLocal = [
-        {
-            _firstName: "Rahul",
-            _lastName: "Sharma",
-            _address: "2nd Street, Perambur",
-            _city: "Chennai",
-            _email: "rahulsharma@gmail.com",
-            _phone: "9876543210",
-            _state: "TamilNadu",
-            _zip: "521654",
-        },
-        {
-            _firstName: "Rahul",
-            _lastName: "Chaturvedi",
-            _address: "4th Street, Andheri",
-            _city: "Mumbai",
-            _email: "rahulc23@rediff.com",
-            _phone: "8932456782",
-            _state: "Maharastra",
-            _zip: "549822",
-        }
-    ];
-    return contactListLocal;
 }
