@@ -114,6 +114,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
             activateSubmitButton(button);
         }
     });
+
+    const form = document.querySelector('.form');
+    form.addEventListener('input', () => {
+        const nameError = document.querySelector('.name-error');
+        const phoneNumberError = document.querySelector('.phone-error');
+        const addressError = document.querySelector('.address-error');
+        const zipError = document.querySelector('.zip-error');
+        const emailError = document.querySelector('.email-error');
+
+        if (nameError.textContent != "" 
+            || phoneNumberError.textContent != "" 
+            || addressError.textContent != "" 
+            || zipError.textContent != ""
+            || emailError.textContent != ""
+            ) {
+            button.classList.remove("submit-button");
+            button.classList.add("submit-button-disabled");
+            document.getElementById("submit-button").disabled = true;
+        } else{
+            activateSubmitButton(button);
+        }
+    });
+
     makeState();
     document.querySelector(".cancel-button").href = site_properties.home_page;
     checkForUpdate();

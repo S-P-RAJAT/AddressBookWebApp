@@ -64,12 +64,12 @@ const createAndUpdateStorage = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
     if (contactList) {
         let contactData = contactList.
-            find(contact => contact._id == contactObj._id);
+            find(contact => contact.id == contactObj.id);
         if (!contactData)
             contactList.push(contactObj);
         else {
-            const index = contactList.map(cnt => cnt._id)
-                .indexOf(contactData._id);
+            const index = contactList.map(cnt => cnt.id)
+                .indexOf(contactData.id);
             contactList.splice(index, 1, contactObj);
         }
     }
